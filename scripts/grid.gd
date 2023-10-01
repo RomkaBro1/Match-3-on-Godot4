@@ -112,6 +112,7 @@ func get_random_figure():
 
 func _ready(): # главная функция
 	randomize()
+	SoundManager.play_random_music()
 	all_figures = make_2d_array()
 	clone_figures = make_2d_array()
 	spawn_figures()
@@ -520,6 +521,7 @@ func destroy_matched():
 					all_figures[i][j].queue_free()
 					all_figures[i][j] = null
 					get_parent().get_node("collapse_timer").start()
+					SoundManager.play_random_sound()
 	current_matches.clear()
 
 func damage_special(column, row):
@@ -649,6 +651,7 @@ func spawn_random_concrete():
 			emit_signal("make_concrete", concrete_spaces[-1])
 		else:
 			print('ОШИБКА=)')
+	SoundManager.play_fixed_sound(0)
 
 func change_moves(counter = 1):
 	for i in counter:

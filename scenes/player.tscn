@@ -1,18 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvfhch7shic0u"]
+[gd_scene load_steps=8 format=3 uid="uid://dvfhch7shic0u"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_kgunx"]
-[ext_resource type="Texture2D" uid="uid://ro362i4ejb4s" path="res://enemies/bar_bg.png" id="2_73iga"]
-[ext_resource type="Texture2D" uid="uid://le4qkfx8pv1k" path="res://enemies/bar_itself.png" id="3_k0m1d"]
+[ext_resource type="Texture2D" uid="uid://c0qhu1ffwhqyj" path="res://art/enemies/Player.png" id="2_g1ir5"]
+[ext_resource type="Texture2D" uid="uid://ro362i4ejb4s" path="res://art/enemies/bar_bg.png" id="2_rtcfm"]
+[ext_resource type="Texture2D" uid="uid://le4qkfx8pv1k" path="res://art/enemies/bar_itself.png" id="3_pv02h"]
 [ext_resource type="FontFile" uid="uid://pqny6gh26qca" path="res://fonts/Kenney Pixel.ttf" id="4_3382v"]
-[ext_resource type="Texture2D" uid="uid://cqgyurrdktv1p" path="res://enemies/bar_armor.png" id="4_b57tb"]
-[ext_resource type="Texture2D" uid="uid://qkke012bj3k8" path="res://enemies/bar_mana.png" id="5_rb4tb"]
+[ext_resource type="Texture2D" uid="uid://cqgyurrdktv1p" path="res://art/enemies/bar_armor.png" id="5_42pps"]
+[ext_resource type="Texture2D" uid="uid://qkke012bj3k8" path="res://art/enemies/bar_mana.png" id="6_x8hck"]
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_kgunx")
 health = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-offset = Vector2(63.95, 0)
+scale = Vector2(0.825, 0.825)
+texture = ExtResource("2_g1ir5")
+offset = Vector2(54.045, -83.78)
 
 [node name="health_bar" type="TextureProgressBar" parent="."]
 anchors_preset = 15
@@ -26,8 +29,8 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.69, 0.69)
 value = 100.0
-texture_under = ExtResource("2_73iga")
-texture_progress = ExtResource("3_k0m1d")
+texture_under = ExtResource("2_rtcfm")
+texture_progress = ExtResource("3_pv02h")
 
 [node name="hp_label" type="Label" parent="health_bar"]
 z_index = 1
@@ -56,7 +59,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.69, 0.69)
 value = 100.0
-texture_progress = ExtResource("4_b57tb")
+texture_progress = ExtResource("5_42pps")
 tint_progress = Color(1, 1, 1, 0.756863)
 
 [node name="mana_bar" type="TextureProgressBar" parent="."]
@@ -70,8 +73,8 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.69, 0.69)
-texture_under = ExtResource("2_73iga")
-texture_progress = ExtResource("5_rb4tb")
+texture_under = ExtResource("2_rtcfm")
+texture_progress = ExtResource("6_x8hck")
 
 [node name="mana_label" type="Label" parent="mana_bar"]
 layout_mode = 0

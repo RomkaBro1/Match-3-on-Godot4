@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Match-3"
-run/main_scene="res://scenes/game_window.tscn"
+run/main_scene="res://scenes/game_menu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
+run/max_fps=60
 config/icon="res://icon.svg"
+
+[autoload]
+
+SoundManager="*res://scenes/sound_manager.tscn"
 
 [display]
 
@@ -23,6 +28,7 @@ window/size/window_width_override=540
 window/size/window_height_override=960
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
+window/handheld/orientation=1
 
 [input]
 
@@ -35,4 +41,5 @@ ui_touch={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
 2d/snap/snap_2d_transforms_to_pixel=true

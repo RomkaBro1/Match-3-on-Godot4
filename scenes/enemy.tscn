@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://eshn1c20ovk1"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_q811j"]
-[ext_resource type="Texture2D" uid="uid://2vfe8sl3dqyc" path="res://enemies/Thing.png" id="2_pq2bp"]
-[ext_resource type="Texture2D" uid="uid://ro362i4ejb4s" path="res://enemies/bar_bg.png" id="3_qnw7a"]
-[ext_resource type="Texture2D" uid="uid://le4qkfx8pv1k" path="res://enemies/bar_itself.png" id="4_g0n4t"]
-[ext_resource type="Texture2D" uid="uid://b5etid74um7y1" path="res://enemies/dialogue_popup.png" id="5_ryial"]
+[ext_resource type="Texture2D" uid="uid://2vfe8sl3dqyc" path="res://art/enemies/Thing.png" id="2_pq2bp"]
+[ext_resource type="Texture2D" uid="uid://ro362i4ejb4s" path="res://art/enemies/bar_bg.png" id="3_qnw7a"]
+[ext_resource type="Texture2D" uid="uid://le4qkfx8pv1k" path="res://art/enemies/bar_itself.png" id="4_g0n4t"]
+[ext_resource type="Texture2D" uid="uid://b5etid74um7y1" path="res://art/enemies/dialogue_popup.png" id="5_ryial"]
 [ext_resource type="FontFile" uid="uid://pqny6gh26qca" path="res://fonts/Kenney Pixel.ttf" id="6_1ttlj"]
 
 [node name="enemy" type="Node2D"]
