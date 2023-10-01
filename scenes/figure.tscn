@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://c38gdafu3t411"]
+
+[ext_resource type="Script" path="res://scripts/figure.gd" id="1_rb8be"]
+[ext_resource type="Texture2D" uid="uid://ce0igfxg6qmbh" path="res://art/figures/ver_bomb.png" id="2_gteuh"]
+[ext_resource type="Texture2D" uid="uid://el4nd0lplej4" path="res://art/figures/hor_bomb.png" id="3_w4c6i"]
+[ext_resource type="Texture2D" uid="uid://d1xw7mde16rt0" path="res://art/figures/mega_bomb.png" id="4_76jlu"]
+[ext_resource type="Texture2D" uid="uid://caocsspj4choc" path="res://art/bombs/rainbow_bomb.png" id="5_pcsw5"]
+
+[node name="figure" type="Node2D"]
+script = ExtResource("1_rb8be")
+spawn_weight = 10
+value = 100
+mana_value = 3
+col_tex = ExtResource("2_gteuh")
+row_tex = ExtResource("3_w4c6i")
+mega_tex = ExtResource("4_76jlu")
+rainbow_tex = ExtResource("5_pcsw5")
+
+[node name="figure_sprite" type="Sprite2D" parent="."]

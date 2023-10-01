@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmwjtrj08ox2j"]
+
+[ext_resource type="PackedScene" uid="uid://c38gdafu3t411" path="res://scenes/figure.tscn" id="1_wtyft"]
+[ext_resource type="Texture2D" uid="uid://2an68nic174o" path="res://art/bombs/lightning_ver_bomb.png" id="2_r4eo2"]
+[ext_resource type="Texture2D" uid="uid://cpby0bgtcnsml" path="res://art/figures/lightning_figure.png" id="2_s4yl4"]
+[ext_resource type="Texture2D" uid="uid://dphw7fcs7h0dw" path="res://art/bombs/lightning_hor_bomb.png" id="3_10axr"]
+[ext_resource type="Texture2D" uid="uid://434yukjof7ln" path="res://art/bombs/lightning_mega_bomb.png" id="4_dn1m4"]
+
+[node name="lightning_figure" instance=ExtResource("1_wtyft")]
+color = "lightning"
+spawn_weight = 8
+value = 125
+col_tex = ExtResource("2_r4eo2")
+row_tex = ExtResource("3_10axr")
+mega_tex = ExtResource("4_dn1m4")
+
+[node name="figure_sprite" parent="." index="0"]
+texture = ExtResource("2_s4yl4")

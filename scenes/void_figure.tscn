@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://bca4byeplyr35"]
+
+[ext_resource type="PackedScene" uid="uid://c38gdafu3t411" path="res://scenes/figure.tscn" id="1_b3klc"]
+[ext_resource type="Texture2D" uid="uid://c2h8rwtn3ga8x" path="res://art/bombs/void_ver_bomb.png" id="2_5l6su"]
+[ext_resource type="Texture2D" uid="uid://d1qrlrvtan32o" path="res://art/figures/void_figure.png" id="2_u8n6t"]
+[ext_resource type="Texture2D" uid="uid://t0wg06rbb4n5" path="res://art/bombs/void_hor_bomb.png" id="3_i2qu7"]
+[ext_resource type="Texture2D" uid="uid://vulmf7sccw2" path="res://art/bombs/void_mega_bomb.png" id="4_kjlvm"]
+
+[node name="void_figure" instance=ExtResource("1_b3klc")]
+color = "void"
+spawn_weight = 6
+value = 150
+mana_value = 0
+col_tex = ExtResource("2_5l6su")
+row_tex = ExtResource("3_i2qu7")
+mega_tex = ExtResource("4_kjlvm")
+
+[node name="figure_sprite" parent="." index="0"]
+texture = ExtResource("2_u8n6t")

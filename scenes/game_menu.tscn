@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://j0k0g7pw73gj"]
+
+[ext_resource type="Script" path="res://scripts/game_menu.gd" id="1_33k08"]
+[ext_resource type="PackedScene" uid="uid://dmjnnricntoav" path="res://scenes/base_menu_panel.tscn" id="1_yi4bt"]
+[ext_resource type="PackedScene" uid="uid://cm7ic3ng0xhel" path="res://scenes/settings_menu.tscn" id="2_fu0ia"]
+
+[node name="Game Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_33k08")
+
+[node name="SettingsMenu" parent="." instance=ExtResource("2_fu0ia")]
+layer = 0
+
+[node name="BaseMenuPanel" parent="." instance=ExtResource("1_yi4bt")]
+
+[connection signal="mute" from="SettingsMenu" to="." method="_on_settings_menu_mute"]
+[connection signal="settings_close" from="SettingsMenu" to="BaseMenuPanel" method="_on_settings_menu_settings_close"]
+[connection signal="game_begin" from="BaseMenuPanel" to="." method="_on_base_menu_panel_game_begin"]
+[connection signal="settings_open" from="BaseMenuPanel" to="SettingsMenu" method="_on_base_menu_panel_settings_open"]

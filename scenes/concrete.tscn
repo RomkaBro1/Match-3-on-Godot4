@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c50rgaungkxt6"]
+
+[ext_resource type="PackedScene" uid="uid://cf4gy7jr5afru" path="res://scenes/ice.tscn" id="1_upsoe"]
+
+[node name="concrete" instance=ExtResource("1_upsoe")]
+health = 2
+
+[node name="2d_sprite" parent="." index="0"]
+texture = null

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://di3ml0vuufgj7"]
+
+[ext_resource type="Texture2D" uid="uid://20k1jxc555wi" path="res://art/figures/concrete_damaged_particle.png" id="1_p2gdb"]
+[ext_resource type="Script" path="res://scripts/concrete_particle.gd" id="2_7wxhp"]
+
+[sub_resource type="Curve" id="Curve_pgv57"]
+max_value = 2.0
+_data = [Vector2(0, 0.252632), 0.0, 5.02054e-07, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_6ne4d"]
+offsets = PackedFloat32Array(0.617021, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="concrete_particle" type="CPUParticles2D" parent="."]
+top_level = true
+emitting = false
+amount = 4
+one_shot = true
+explosiveness = 0.75
+randomness = 0.45
+lifetime_randomness = 0.29
+texture = ExtResource("1_p2gdb")
+emission_shape = 3
+emission_rect_extents = Vector2(50, 50)
+spread = 180.0
+initial_velocity_min = 76.92
+initial_velocity_max = 162.39
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.6
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_pgv57")
+color_ramp = SubResource("Gradient_6ne4d")
+script = ExtResource("2_7wxhp")
+
+[node name="Timer" type="Timer" parent="concrete_particle"]
+one_shot = true
+
+[connection signal="timeout" from="concrete_particle/Timer" to="concrete_particle" method="_on_timer_timeout"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=6 format=3 uid="uid://df2xbl5xikjsf"]
+
+[ext_resource type="PackedScene" uid="uid://c38gdafu3t411" path="res://scenes/figure.tscn" id="1_x0uq6"]
+[ext_resource type="Texture2D" uid="uid://dq4bctwqj71d8" path="res://art/figures/air_figure.png" id="2_1nige"]
+[ext_resource type="Texture2D" uid="uid://bijiy2mrdyvyt" path="res://art/bombs/air_ver_bomb.png" id="2_xw5ue"]
+[ext_resource type="Texture2D" uid="uid://b1jkxb5hm0p3o" path="res://art/bombs/air_hor_bomb.png" id="3_gq5fj"]
+[ext_resource type="Texture2D" uid="uid://bwfn1m65r6doc" path="res://art/bombs/air_mega_bomb.png" id="4_abxnf"]
+
+[node name="air_figure" instance=ExtResource("1_x0uq6")]
+color = "air"
+col_tex = ExtResource("2_xw5ue")
+row_tex = ExtResource("3_gq5fj")
+mega_tex = ExtResource("4_abxnf")
+
+[node name="figure_sprite" parent="." index="0"]
+texture = ExtResource("2_1nige")

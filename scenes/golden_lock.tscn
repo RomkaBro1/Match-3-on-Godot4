@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6r8f11lv0wua"]
+
+[ext_resource type="PackedScene" uid="uid://dvtn173p6ckb2" path="res://scenes/lock.tscn" id="1_lyp2h"]
+[ext_resource type="Texture2D" uid="uid://da8cprdflpjp7" path="res://art/figures/golden_lock.png" id="2_m322b"]
+
+[node name="golden_lock" instance=ExtResource("1_lyp2h")]
+health = 5
+value = 5000
+
+[node name="2d_sprite" parent="." index="0"]
+texture = ExtResource("2_m322b")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfsrh6dvxl8hp"]
+
+[ext_resource type="PackedScene" uid="uid://c38gdafu3t411" path="res://scenes/figure.tscn" id="1_jgx3i"]
+[ext_resource type="Texture2D" uid="uid://bcqww2814eghh" path="res://art/earth_figure.png" id="2_2v77p"]
+[ext_resource type="Texture2D" uid="uid://bgt256tktnjlw" path="res://art/bombs/earth_ver_bomb.png" id="2_xg1e5"]
+[ext_resource type="Texture2D" uid="uid://b300qhp54s6mp" path="res://art/bombs/earth_hor_bomb.png" id="3_dcuic"]
+[ext_resource type="Texture2D" uid="uid://dfl1566bc86e4" path="res://art/bombs/earth_mega_bomb.png" id="4_s41vl"]
+
+[node name="earth_figure" instance=ExtResource("1_jgx3i")]
+color = "earth"
+col_tex = ExtResource("2_xg1e5")
+row_tex = ExtResource("3_dcuic")
+mega_tex = ExtResource("4_s41vl")
+
+[node name="figure_sprite" parent="." index="0"]
+texture = ExtResource("2_2v77p")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://davwoyb2bom8a"]
+
+[ext_resource type="Texture2D" uid="uid://5rkyj0b1wwjo" path="res://art/figures/mana_particle.png" id="1_lvul5"]
+[ext_resource type="Script" path="res://scripts/trail.gd" id="2_kh5nl"]
+[ext_resource type="Texture2D" uid="uid://d1qrlrvtan32o" path="res://art/figures/void_figure.png" id="2_tuvv1"]
+[ext_resource type="Script" path="res://scenes/mana_sprite.gd" id="2_vjfe3"]
+
+[sub_resource type="Gradient" id="Gradient_sytuw"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[node name="mana_particle" type="Node2D"]
+
+[node name="mana_sprite" type="Sprite2D" parent="."]
+top_level = true
+z_index = 10
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_lvul5")
+script = ExtResource("2_vjfe3")
+
+[node name="trail" type="Line2D" parent="mana_sprite"]
+top_level = true
+z_index = 9
+gradient = SubResource("Gradient_sytuw")
+script = ExtResource("2_kh5nl")
+targetpath = NodePath("..")
+traillength = 10
+
+[node name="VoidFigure" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(62, 1)
+texture = ExtResource("2_tuvv1")

@@ -1,0 +1,140 @@
+[gd_scene load_steps=15 format=3 uid="uid://dhptymmki1cpw"]
+
+[ext_resource type="Texture2D" uid="uid://bu7nvdypwp4i7" path="res://art/background.png" id="1_0o6xc"]
+[ext_resource type="FontFile" uid="uid://drnyjv43tabc" path="res://fonts/Kenney Blocks.ttf" id="2_5v3vm"]
+[ext_resource type="Script" path="res://scripts/grid.gd" id="2_08o45"]
+[ext_resource type="Script" path="res://scripts/score_rect.gd" id="2_8s0n6"]
+[ext_resource type="Script" path="res://scripts/icy_grid.gd" id="3_bc88r"]
+[ext_resource type="Script" path="res://scripts/lock_grid.gd" id="4_mcorn"]
+[ext_resource type="Script" path="res://scripts/concrete_grid.gd" id="5_ldabx"]
+[ext_resource type="Script" path="res://scripts/enemy_grid.gd" id="6_its5b"]
+[ext_resource type="Script" path="res://scripts/corrupted_grid.gd" id="6_vadyt"]
+[ext_resource type="Script" path="res://scripts/player_grid.gd" id="10_ymhrw"]
+[ext_resource type="Texture2D" uid="uid://eqif0icfx454" path="res://art/spells/fireball.png" id="11_whmgt"]
+[ext_resource type="Texture2D" uid="uid://c416c5x1mnvcg" path="res://art/spells/fireball_nomana.png" id="12_h8c4m"]
+[ext_resource type="Texture2D" uid="uid://c3xs4clc666xt" path="res://art/spells/stonedefend.png" id="12_y87dy"]
+[ext_resource type="Texture2D" uid="uid://btm8u2ansnv22" path="res://art/spells/stonedefend_nomana.png" id="14_djokv"]
+
+[node name="game_window" type="Node2D"]
+
+[node name="background" type="TextureRect" parent="."]
+z_index = -2
+offset_right = 1080.0
+offset_bottom = 1920.0
+texture = ExtResource("1_0o6xc")
+
+[node name="score_rect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_8s0n6")
+
+[node name="score_label" type="Label" parent="score_rect"]
+layout_mode = 0
+offset_right = 1144.0
+offset_bottom = 155.0
+theme_override_fonts/font = ExtResource("2_5v3vm")
+theme_override_font_sizes/font_size = 91
+text = "000"
+horizontal_alignment = 1
+
+[node name="grid" type="Node2D" parent="."]
+script = ExtResource("2_08o45")
+width = 9
+height = 9
+x_start = 108
+y_start = 1600
+offset = 108
+
+[node name="icy_grid" type="Node2D" parent="."]
+script = ExtResource("3_bc88r")
+
+[node name="lock_grid" type="Node2D" parent="."]
+script = ExtResource("4_mcorn")
+
+[node name="concrete_grid" type="Node2D" parent="."]
+script = ExtResource("5_ldabx")
+
+[node name="corrupted_grid" type="Node2D" parent="."]
+script = ExtResource("6_vadyt")
+
+[node name="enemy_grid" type="Node2D" parent="."]
+script = ExtResource("6_its5b")
+
+[node name="player_grid" type="Node2D" parent="."]
+script = ExtResource("10_ymhrw")
+
+[node name="MarginContainer" type="MarginContainer" parent="player_grid"]
+offset_top = 1692.0
+offset_right = 1080.0
+offset_bottom = 1920.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="player_grid/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="spells_container" type="HBoxContainer" parent="player_grid/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="spell_fireball" type="TextureButton" parent="player_grid/MarginContainer/ScrollContainer/spells_container"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("11_whmgt")
+texture_disabled = ExtResource("12_h8c4m")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="spell_stonedefend" type="TextureButton" parent="player_grid/MarginContainer/ScrollContainer/spells_container"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("12_y87dy")
+texture_disabled = ExtResource("14_djokv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="destroy_timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="collapse_timer" type="Timer" parent="."]
+wait_time = 0.125
+one_shot = true
+
+[node name="refill_timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="add_mana" from="grid" to="player_grid" method="_on_grid_add_mana"]
+[connection signal="armor_break" from="grid" to="player_grid" method="_on_grid_armor_break"]
+[connection signal="button_pressable" from="grid" to="player_grid" method="_on_grid_button_pressable"]
+[connection signal="concrete_stones_rn" from="grid" to="player_grid" method="_on_grid_concrete_stones_rn"]
+[connection signal="damage_concrete" from="grid" to="concrete_grid" method="_on_grid_damage_concrete"]
+[connection signal="damage_corrupted" from="grid" to="corrupted_grid" method="_on_grid_damage_corrupted"]
+[connection signal="damage_ice" from="grid" to="icy_grid" method="_on_grid_damage_ice"]
+[connection signal="damage_lock" from="grid" to="lock_grid" method="_on_grid_damage_lock"]
+[connection signal="inflict_corrupted_dmg" from="grid" to="player_grid" method="_on_grid_inflict_corrupted_dmg"]
+[connection signal="make_concrete" from="grid" to="concrete_grid" method="_on_grid_make_concrete"]
+[connection signal="make_corrupted" from="grid" to="corrupted_grid" method="_on_grid_make_corrupted"]
+[connection signal="make_ice" from="grid" to="icy_grid" method="_on_grid_make_ice"]
+[connection signal="make_lock" from="grid" to="lock_grid" method="_on_grid_make_lock"]
+[connection signal="update_attack_in" from="grid" to="enemy_grid" method="_on_grid_update_attack_in"]
+[connection signal="update_score" from="grid" to="score_rect" method="_on_grid_update_score"]
+[connection signal="remove_lock" from="lock_grid" to="grid" method="_on_lock_grid_remove_lock"]
+[connection signal="remove_concrete" from="concrete_grid" to="grid" method="_on_concrete_grid_remove_concrete"]
+[connection signal="remove_corrupted" from="corrupted_grid" to="grid" method="_on_corrupted_grid_remove_corrupted"]
+[connection signal="attack_player" from="enemy_grid" to="player_grid" method="_on_enemy_grid_attack_player"]
+[connection signal="enemy_negative_hp" from="enemy_grid" to="grid" method="_on_enemy_grid_enemy_negative_hp"]
+[connection signal="attack_enemy" from="player_grid" to="enemy_grid" method="_on_player_grid_attack_enemy"]
+[connection signal="change_move" from="player_grid" to="grid" method="_on_player_grid_change_move"]
+[connection signal="player_negative_hp" from="player_grid" to="grid" method="_on_player_grid_player_negative_hp"]
+[connection signal="stone_defend" from="player_grid" to="grid" method="_on_player_grid_stone_defend"]
+[connection signal="pressed" from="player_grid/MarginContainer/ScrollContainer/spells_container/spell_fireball" to="player_grid" method="_on_spell_fireball_pressed"]
+[connection signal="pressed" from="player_grid/MarginContainer/ScrollContainer/spells_container/spell_stonedefend" to="player_grid" method="_on_spell_stonedefend_pressed"]
+[connection signal="timeout" from="destroy_timer" to="grid" method="_on_destroy_timer_timeout"]
+[connection signal="timeout" from="collapse_timer" to="grid" method="_on_collapse_timer_timeout"]
+[connection signal="timeout" from="refill_timer" to="grid" method="_on_refill_timer_timeout"]

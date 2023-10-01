@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvtn173p6ckb2"]
+
+[ext_resource type="PackedScene" uid="uid://cf4gy7jr5afru" path="res://scenes/ice.tscn" id="1_td6i2"]
+
+[node name="lock" instance=ExtResource("1_td6i2")]
+health = 1
+value = 1000
+
+[node name="2d_sprite" parent="." index="0"]
+texture = null

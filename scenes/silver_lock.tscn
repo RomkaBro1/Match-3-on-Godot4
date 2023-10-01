@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc2aebwye4pkf"]
+
+[ext_resource type="PackedScene" uid="uid://dvtn173p6ckb2" path="res://scenes/lock.tscn" id="1_eik3s"]
+[ext_resource type="Texture2D" uid="uid://dtnjcbopqdidt" path="res://art/figures/silver_lock.png" id="2_w1i7k"]
+
+[node name="silver_lock" instance=ExtResource("1_eik3s")]
+health = 3
+value = 3000
+
+[node name="2d_sprite" parent="." index="0"]
+texture = ExtResource("2_w1i7k")

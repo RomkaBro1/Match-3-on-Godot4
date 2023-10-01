@@ -1,0 +1,16 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckk4y34m8eysw"]
+
+[ext_resource type="PackedScene" uid="uid://c38gdafu3t411" path="res://scenes/figure.tscn" id="1_438w3"]
+[ext_resource type="Texture2D" uid="uid://dkax8ew6ngjev" path="res://art/bombs/water_ver_bomb.png" id="2_avtyi"]
+[ext_resource type="Texture2D" uid="uid://bs58she7b8ik7" path="res://art/figures/water_figure.png" id="2_gfcp6"]
+[ext_resource type="Texture2D" uid="uid://bofgikeg3flnn" path="res://art/bombs/water_hor_bomb.png" id="3_vtd43"]
+[ext_resource type="Texture2D" uid="uid://ct5jf3psfk43t" path="res://art/bombs/water_mega_bomb.png" id="4_xq7n6"]
+
+[node name="water_figure" instance=ExtResource("1_438w3")]
+color = "water"
+col_tex = ExtResource("2_avtyi")
+row_tex = ExtResource("3_vtd43")
+mega_tex = ExtResource("4_xq7n6")
+
+[node name="figure_sprite" parent="." index="0"]
+texture = ExtResource("2_gfcp6")

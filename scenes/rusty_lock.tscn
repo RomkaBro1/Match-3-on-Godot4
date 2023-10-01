@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://1rhycllmwon3"]
+
+[ext_resource type="PackedScene" uid="uid://dvtn173p6ckb2" path="res://scenes/lock.tscn" id="1_i062v"]
+[ext_resource type="Texture2D" uid="uid://bbe8rm5mc82yg" path="res://art/figures/lock.png" id="2_uksge"]
+
+[node name="rusty_lock" instance=ExtResource("1_i062v")]
+
+[node name="2d_sprite" parent="." index="0"]
+texture = ExtResource("2_uksge")

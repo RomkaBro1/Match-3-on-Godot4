@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmjnnricntoav"]
+
+[ext_resource type="Texture2D" uid="uid://dkp6lqmkqmtda" path="res://art/main_menu.png" id="1_0ibxx"]
+[ext_resource type="Script" path="res://scripts/base_menu_panel.gd" id="1_3plob"]
+[ext_resource type="Texture2D" uid="uid://dmvstf8tbjbtm" path="res://art/menu_ui/play_button.png" id="1_xif7f"]
+[ext_resource type="Texture2D" uid="uid://dar5olmm0fur8" path="res://art/menu_ui/settings_button.png" id="2_gd4ri"]
+
+[node name="BaseMenuPanel" type="CanvasLayer"]
+script = ExtResource("1_3plob")
+
+[node name="MenuBG" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0ibxx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 750
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -125
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/Buttons"]
+clip_contents = true
+custom_minimum_size = Vector2(512, 760)
+layout_mode = 2
+texture_normal = ExtResource("1_xif7f")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="MarginContainer/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("2_gd4ri")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="MarginContainer/Buttons/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/TextureButton2" to="." method="_on_texture_button_2_pressed"]

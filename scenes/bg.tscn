@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ijltyr5o3871"]
+
+[ext_resource type="PackedScene" uid="uid://c38gdafu3t411" path="res://scenes/figure.tscn" id="1_m0sii"]
+[ext_resource type="Texture2D" uid="uid://bb6mphx0mfw44" path="res://art/figures/bg_sprite.png" id="2_esqx7"]
+
+[node name="bg" instance=ExtResource("1_m0sii")]
+
+[node name="figure_sprite" parent="." index="0"]
+z_index = -1
+texture = ExtResource("2_esqx7")

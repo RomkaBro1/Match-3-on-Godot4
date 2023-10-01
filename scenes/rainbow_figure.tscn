@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://1kr6p4q1toub"]
+
+[ext_resource type="Texture2D" uid="uid://caocsspj4choc" path="res://art/bombs/rainbow_bomb.png" id="1_fwiwa"]
+
+[node name="rainbow_figure" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fwiwa")
